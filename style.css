@@ -1,0 +1,162 @@
+/* Базові стилі */
+:root{
+  --bg: #0f1724;
+  --card: #0b1220;
+  --accent: #6ee7b7;
+  --muted: #94a3b8;
+  --glass: rgba(255,255,255,0.03);
+  --glass-2: rgba(255,255,255,0.02);
+  --radius: 14px;
+  --gap: 16px;
+  font-family: Inter, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  background:
+    radial-gradient(1200px 600px at 10% 10%, rgba(110,231,183,0.06), transparent 10%),
+    linear-gradient(180deg,#061226 0%, #071026 100%);
+  color: #e6eef6;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:24px;
+}
+
+/* Контейнер */
+.app{
+  width:100%;
+  max-width:920px;
+  margin:0 auto;
+}
+
+/* Екрани */
+.screen{
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-radius: var(--radius);
+  padding: 28px;
+  box-shadow: 0 8px 30px rgba(2,6,23,0.6);
+  backdrop-filter: blur(6px);
+}
+
+/* Центрування для старт/результат */
+.center{
+  display:flex;
+  flex-direction:column;
+  gap:18px;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+}
+
+/* Кнопки */
+.btn{
+  appearance:none;
+  border: none;
+  padding: 12px 22px;
+  border-radius: 12px;
+  font-weight:600;
+  cursor:pointer;
+  background: var(--glass);
+  color: var(--accent);
+  transition: transform .12s ease, box-shadow .12s;
+}
+.btn:hover{ transform: translateY(-3px); box-shadow: 0 8px 30px rgba(22, 163, 125, 0.08); }
+
+.btn.primary{
+  background: linear-gradient(90deg, rgba(110,231,183,0.12), rgba(110,231,183,0.06));
+  color: var(--accent);
+  border: 1px solid rgba(110,231,183,0.12);
+  padding: 14px 26px;
+  font-size:1.05rem;
+}
+
+/* Логотип */
+.logo{
+  margin:0;
+  font-size:1.8rem;
+  letter-spacing:0.6px;
+  color: #c7ffee;
+}
+
+/* Верхня панель */
+.topbar{
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-bottom:16px;
+  color:var(--muted);
+  font-weight:600;
+}
+
+.timer{
+  background: var(--glass-2);
+  padding:8px 12px;
+  border-radius: 10px;
+  display:inline-flex;
+  gap:8px;
+  align-items:center;
+}
+
+/* Картка з питанням */
+.card.question-card{
+  padding: 20px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.015), rgba(255,255,255,0.01));
+  border: 1px solid rgba(255,255,255,0.03);
+}
+
+/* Текст питання */
+.question-text{
+  font-size: 1.6rem;
+  font-weight:700;
+  margin-bottom: 14px;
+  color:#eafaf1;
+}
+
+/* Сітка відповідей */
+.answers-grid{
+  display:grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap:12px;
+}
+
+.answer-btn{
+  padding:14px;
+  border-radius:10px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(0,0,0,0.03));
+  border: 1px solid rgba(255,255,255,0.03);
+  cursor:pointer;
+  font-weight:700;
+  transition: transform .08s ease, box-shadow .08s;
+}
+.answer-btn:hover{ transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.5); }
+
+/* Підказка правильного/неправильного */
+.answer-correct{
+  outline: 3px solid rgba(110,231,183,0.16);
+  background: linear-gradient(90deg, rgba(110,231,183,0.06), rgba(255,255,255,0.01));
+}
+.answer-wrong{
+  outline: 3px solid rgba(255,108,108,0.12);
+  background: linear-gradient(90deg, rgba(255,108,108,0.03), rgba(255,255,255,0.01));
+}
+
+/* Результати */
+.stats{
+  font-size:1.05rem;
+  color:var(--muted);
+}
+
+/* Приховати */
+.hidden{ display:none; }
+
+/* Мобільна адаптація */
+@media (max-width:560px){
+  .answers-grid{ grid-template-columns: 1fr; }
+  .question-text{ font-size:1.3rem; }
+}
